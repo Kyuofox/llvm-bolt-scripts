@@ -44,27 +44,27 @@ cd ..
 export PATH="${STAGE_ONE}:$PATH"
 
 echo "* Bolting Clang"
-perf2bolt ${CPATH}/clang-14 \
+perf2bolt ${CPATH}/clang-15 \
 	-p perf.data \
-	-o clang-14.fdata \
-	-w clang-14.yaml || (echo "Could not convert perf-data to bolt for clang-14"; exit 1)
+	-o clang-15.fdata \
+	-w clang-15.yaml || (echo "Could not convert perf-data to bolt for clang-15"; exit 1)
 
-llvm-bolt ${CPATH}/clang-14 \
-	-o ${CPATH}/clang-14.bolt \
-	-b clang-14.yaml \
+llvm-bolt ${CPATH}/clang-15 \
+	-o ${CPATH}/clang-15.bolt \
+	-b clang-15.yaml \
 	-reorder-blocks=cache+ \
 	-reorder-functions=hfsort+ \
 	-split-functions=3 \
 	-split-all-cold \
 	-dyno-stats \
 	-icf=1 \
-	-use-gnu-stack || (echo "Could not optimize binary for clang-14"; exit 1)
+	-use-gnu-stack || (echo "Could not optimize binary for clang-15"; exit 1)
 
 echo "* Bolting LLD"
 perf2bolt ${CPATH}/lld \
 	-p perf.data \
 	-o lld.fdata \
-	-w lld.yaml || (echo "Could not convert perf-data to bolt for lld-14"; exit 1)
+	-w lld.yaml || (echo "Could not convert perf-data to bolt for lld-15"; exit 1)
 
 llvm-bolt ${CPATH}/lld \
 	-o ${CPATH}/lld.bolt \
@@ -75,4 +75,4 @@ llvm-bolt ${CPATH}/lld \
 	-split-all-cold \
 	-dyno-stats \
 	-icf=1 \
-	-use-gnu-stack || (echo "Could not optimize binary for lld-14"; exit 1)
+	-use-gnu-stack || (echo "Could not optimize binary for lld-15"; exit 1)

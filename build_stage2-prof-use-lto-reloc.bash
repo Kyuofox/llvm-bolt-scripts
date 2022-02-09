@@ -40,6 +40,7 @@ CC=${CPATH}/clang CXX=${CPATH}/clang++ LD=${CPATH}/lld \
 	-DLLVM_TARGETS_TO_BUILD="ARM;AArch64;X86" \
 	-DLLVM_TOOL_CLANG_BUILD=ON \
 	-DLLVM_TOOL_LLD_BUILD=ON \
+	-DLLVM_USE_NEWPM=ON \
   	../llvm-project/llvm || (echo "Could not configure project!"; exit 1)
 
 echo

@@ -32,6 +32,7 @@ CC=${CPATH}/clang CXX=${CPATH}/clang++ LD=${CPATH}/lld \
 	-DLLVM_PARALLEL_LINK_JOBS="$(nproc)" \
 	-DLLVM_TARGETS_TO_BUILD="ARM;AArch64;X86" \
 	-DLLVM_USE_LINKER=lld \
+	-DLLVM_USE_NEWPM=ON \
   	../llvm-project/llvm || (echo "Could not configure project!"; exit 1)
 
 echo

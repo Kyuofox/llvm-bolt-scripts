@@ -35,6 +35,7 @@ CC=clang CXX=clang++ LD=lld \
 	-DLLVM_ENABLE_LLD=ON \
 	-DLLVM_TOOL_CLANG_BUILD=ON \
 	-DLLVM_TOOL_LLD_BUILD=ON \
+	-DLLVM_USE_NEWPM=ON \
   	../llvm-project/llvm|| (echo "Could not configure project!"; exit 1)
 
 echo

@@ -22,7 +22,8 @@ CC=clang CXX=clang++ LD=lld \
 	-DCOMPILER_RT_BUILD_SANITIZERS=OFF \
 	-DCOMPILER_RT_BUILD_XRAY=OFF \
 	-DCOMPILER_RT_BUILD_LIBFUZZER=OFF  \
-	-DCLANG_VENDOR="Clang-BOLT" \
+	-DCLANG_VENDOR="Kyuofox-$(date +%Y%m%d)" \
+	-DCLANG_REPOSITORY_STRING="GitHub.com/KyuoFoxHuyu" \
     -DCMAKE_CXX_FLAGS="-O3 -march=native -m64 -mavx -fomit-frame-pointer" \
     -DCMAKE_C_FLAGS="-O3 -march=native -m64 -mavx -fomit-frame-pointer" \
 	-DLLVM_ENABLE_PROJECTS="clang;lld;compiler-rt;bolt" \

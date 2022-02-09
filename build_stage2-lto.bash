@@ -17,7 +17,8 @@ CC=${CPATH}/clang CXX=${CPATH}/clang++ LD=${CPATH}/lld \
 	-DCMAKE_INSTALL_PREFIX="$(pwd)/install" \
 	-DCLANG_ENABLE_ARCMT=OFF \
 	-DCLANG_ENABLE_STATIC_ANALYZER=OFF \
-	-DCLANG_VENDOR="Clang-BOLT" \
+	-DCLANG_VENDOR="Kyuofox-$(date +%Y%m%d)" \
+	-DCLANG_REPOSITORY_STRING="GitHub.com/KyuoFoxHuyu" \
 	-DLLVM_ENABLE_LLD=ON \
 	-DLLVM_ENABLE_LTO=Thin \
     -DCMAKE_CXX_FLAGS="-O3 -march=native -m64 -mavx -fomit-frame-pointer" \

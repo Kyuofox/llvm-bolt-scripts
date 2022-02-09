@@ -26,7 +26,7 @@ CC=${CPATH}/clang CXX=${CPATH}/clang++ LD=${CPATH}/lld \
     -DCMAKE_C_FLAGS="-O3 -march=native -m64 -mavx -fomit-frame-pointer" \
     -DENABLE_LINKER_BUILD_ID=ON \
 	-DLLVM_PROFDATA_FILE="${BASE_DIR}"/stage2-prof-generate/profiles/clang.prof \
-	-DLLVM_TARGETS_TO_BUILD="X86" \
+	-DLLVM_TARGETS_TO_BUILD="ARM;AArch64;X86" \
 	-DLLVM_TOOL_CLANG_BUILD=ON \
 	-DLLVM_TOOL_CLANG_TOOLS_EXTRA_BUILD=OFF \
 	-DLLVM_TOOL_COMPILER_RT_BUILD=OFF \

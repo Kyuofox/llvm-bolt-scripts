@@ -25,9 +25,6 @@ CC=${CPATH}/clang CXX=${CPATH}/clang++ LD=${CPATH}/lld \
 	-DLLVM_INCLUDE_DOCS=OFF \
 	-DCLANG_VENDOR="Kyuofox-$(date +%Y%m%d)" \
 	-DCLANG_REPOSITORY_STRING="GitHub.com/KyuoFoxHuyu" \
-	-DLLVM_ENABLE_LLD=ON \
-    -DCMAKE_CXX_FLAGS="-O3 -march=native -m64 -mavx -fomit-frame-pointer" \
-    -DCMAKE_C_FLAGS="-O3 -march=native -m64 -mavx -fomit-frame-pointer" \
 	-DLLVM_ENABLE_PROJECTS="clang;lld;polly;bolt" \
 	-DLLVM_PARALLEL_COMPILE_JOBS="$(nproc)"\
 	-DLLVM_PARALLEL_LINK_JOBS="$(nproc)" \
